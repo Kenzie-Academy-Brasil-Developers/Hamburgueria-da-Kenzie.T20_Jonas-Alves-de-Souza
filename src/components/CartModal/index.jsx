@@ -20,10 +20,10 @@ export const CartModal = ({ cartList, setCartList, setIsopen }) => {
 
    return (
       <div
-         className={`${styles.modalOverlay}`}
-         ref={modalRef} 
-         role="dialog">
-         <div className={`${styles.modalBox}`}>
+         className={`${styles.modalOverlay}`} 
+         role="dialog"
+         >
+         <div className={`${styles.modalBox}`} ref={modalRef}>
             <div className={`${styles.topModal}`}>
                <h2 className="text04 bold white">Carrinho de compras</h2>
                <button
