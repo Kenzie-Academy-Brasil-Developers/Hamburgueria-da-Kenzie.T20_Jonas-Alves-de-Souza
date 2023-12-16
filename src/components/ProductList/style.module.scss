@@ -5,7 +5,10 @@
     grid-template-columns: 0.2fr 0.2fr 0.2fr 0.2fr; 
     gap: 1.875rem;
 
-    @media(max-width: 960px){
+    @media(max-width: 1300px){
+        grid-template-columns: repeat(3, 1fr);
+    }
+    @media(max-width: 990px){
         grid-template-columns: repeat(2, 1fr);
     }
     @media(max-width: 660px){
