@@ -6,6 +6,10 @@ header{
     display: flex;
     justify-content: space-between;
     align-items: center; 
+
+   @media(max-width:500px){
+    display: grid;
+   }
         
     div{
         display: flex;
@@ -33,7 +37,8 @@ header{
 
             input{
                 height: 22px;
-                border: solid var(--color-grey-300) 1px;
+                border: solid var(--color-grey-100) .0938rem;
+                border-radius: .5rem;
 
                 font-family: var(--font-primary);
                 width: 400;
@@ -41,7 +46,7 @@ header{
                 color: var(--color-grey-300);
             }
             input:hover{
-                border: solid var(--color-primary) 1px;
+                border: solid var(--color-primary) .0938rem;
             }
         }
     }

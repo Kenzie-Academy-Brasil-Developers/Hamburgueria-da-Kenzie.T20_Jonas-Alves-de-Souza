@@ -4,7 +4,7 @@ import styles from "./style.module.scss"
 export const ProductList = ({ productList, loading, cartList, setCartList }) => {
    return (
       <>
-         {loading ? (<p className="container text04 bold red">Carregando...</p>) : productList.length > 0 ? 
+         {loading ? (<p className="container text04 bold green">Carregando...</p>) : productList.length > 0 ? 
             (  
                <div className="container">
                   <ul className={`${styles.productsBox}`}>
@@ -18,7 +18,7 @@ export const ProductList = ({ productList, loading, cartList, setCartList }) => 
                   </ul>
                </div>
             ) : (
-            <p>Nenhum resultado encontrado</p>
+            <p className="container text04 bold red">Nenhum resultado encontrado!!!</p>
             )
          }
       </>

@@ -19,8 +19,9 @@
     border: none;
     border-radius: .5rem;
     background: var(--color-grey-300);
-
-   
+}
+.button01:hover{
+    filter: brightness(1.2);
 }
 .button02{
     @extend %button;
