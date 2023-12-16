@@ -22,6 +22,7 @@
 }
 .button01:hover{
     filter: brightness(1.2);
+    transition: 0.5s
 }
 .button02{
     @extend %button;
@@ -33,4 +34,5 @@
 }
 .button02:hover{
     filter: brightness(1.2);
+    transition: 0.5s
 }
