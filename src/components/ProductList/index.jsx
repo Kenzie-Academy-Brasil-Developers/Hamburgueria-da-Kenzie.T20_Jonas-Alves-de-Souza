@@ -1,18 +1,22 @@
 import { ProductCard } from "./ProductCard";
+import styles from "./style.module.scss"
 
-export const ProductList = ({ productList, loading, addNewProduct }) => {
+export const ProductList = ({ productList, loading, cartList, setCartList }) => {
    return (
       <>
-         {loading ? (<p>Carregando...</p>) : productList.length > 0 ? 
-            ( 
-               <ul>
-                  {productList.map((product) => (
-                     <ProductCard
-                     addNewProduct={addNewProduct} 
-                     key={product.id} 
-                     product={product} />
-                  ))}
-               </ul> 
+         {loading ? (<p className="container text04 bold red">Carregando...</p>) : productList.length > 0 ? 
+            (  
+               <div className="container">
+                  <ul className={`${styles.productsBox}`}>
+                     {productList.map((product) => (
+                        <ProductCard
+                           setCartList={setCartList}
+                           cartList={cartList} 
+                           key={product.id} 
+                           product={product} />
+                     ))}
+                  </ul>
+               </div>
             ) : (
             <p>Nenhum resultado encontrado</p>
             )

@@ -1,16 +1,30 @@
 import { MdClose } from "react-icons/md";
 import { CartItemCard } from "./CartItemCard";
+import { useClearCart } from "../../hooks/useClearCart";
+import { useOutclick } from "../../hooks/useOutclick";
+import { useKeydown } from "../../hooks/usekeydown";
 
-export const CartModal = ({ cartList, removeProduct, clearCart, setIsopen }) => {
+export const CartModal = ({ cartList, setCartList, setIsopen }) => {
    const total = cartList.reduce((prevValue, product) => {
       return prevValue + product.price;
    }, 0);
 
+   const modalRef = useOutclick(()=> {
+      setIsopen(false)      
+   })
+
+   const buttonRef = useKeydown("Escape", (element)=>{
+      element.click()
+   })
+
    return (
-      <div role="dialog">
+      <div
+         ref={modalRef} 
+         role="dialog">
          <div>
             <h2>Carrinho de compras</h2>
             <button
+               ref={buttonRef}
                onClick={() => setIsopen(false)} 
                aria-label="close" 
                title="Fechar">
@@ -22,7 +36,8 @@ export const CartModal = ({ cartList, removeProduct, clearCart, setIsopen }) => 
             <ul>
                {cartList.map((product) => (
                   <CartItemCard
-                  removeProduct={removeProduct} 
+                  setCartList={setCartList}
+                  cartList={cartList} 
                   key={product.id} 
                   product={product} />
                ))}
@@ -35,7 +50,7 @@ export const CartModal = ({ cartList, removeProduct, clearCart, setIsopen }) => 
             </div>
             <button
             onClick={()=> {
-               return clearCart()
+               return useClearCart(setCartList)
             }}
             >Remover todos</button>
          </div>
