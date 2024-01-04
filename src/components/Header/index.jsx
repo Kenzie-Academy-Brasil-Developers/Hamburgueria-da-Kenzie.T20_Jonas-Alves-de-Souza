@@ -1,8 +1,10 @@
 import { useState } from "react";
-import Logo from "../../assets/Logo.svg";
 import { MdSearch, MdShoppingCart } from "react-icons/md";
-import { useCartProductQuantity } from "../../hooks/useCartProductQuantity.js"
+import { useCartProductQuantity } from "../../hooks"
+import { Button, Input } from "../Fragments/index.js";
+
 import styles from "./style.module.scss"
+import Logo from "../../assets/Logo.svg";
 
 export const Header = ({ cartList, setIsOpen, setSearch }) => {
    const [value, setValue] = useState("");
@@ -15,29 +17,29 @@ export const Header = ({ cartList, setIsOpen, setSearch }) => {
    
      return (
       <header>
-         <div className={`container`}>
-            <div className={`${styles.headerBox}`}>
+            <div className={`${styles.headerBox} container`}>
                <img src={Logo} alt="Logo Kenzie Burguer" />
+
                <div>
                   <div>
-                     <button onClick={() => setIsOpen(true)}>
+                     <form onSubmit={submit}>
+                        <Input
+                           type="text"
+                           value={value}
+                           onChange={(e) => setValue(e.target.value)}
+                        />
+                        <Button type="submit">
+                        <MdSearch size={21} color="#828282" />
+                        </Button>
+                     </form>   
+                     <Button onClick={() => setIsOpen(true)}>
                         <MdShoppingCart size={21} color="#828282" />
                         <span>{useCartProductQuantity(cartList)}</span>
-                     </button>
+                     </Button>
                   </div>
-                  <form onSubmit={submit}>
-                     <input
-                        type="text"
-                        value={value}
-                        onChange={(e) => setValue(e.target.value)}
-                     />
-                     <button type="submit">
-                     <MdSearch size={21} color="#828282" />
-                     </button>
-                  </form>
+
                </div>
             </div>
-         </div>
       </header>
    );
 };

@@ -1,4 +1,5 @@
-import { useAddNewProduct } from "../../../hooks/useAddNewProduct"
+import { useAddNewProduct } from "../../../hooks"
+import { Button } from "../../Fragments/Button"
 import styles from "./style.module.scss"
 
 export const ProductCard = ({ product, cartList, setCartList }) => {
@@ -13,9 +14,9 @@ export const ProductCard = ({ product, cartList, setCartList }) => {
                     <h3 className="title03 grey">{product.name}</h3>
                     <span className="text03 grey">{product.category}</span>
                     <span className="text04 green bold">{product.price.toLocaleString('pt-BR', { style: "currency", currency: "BRL"})}</span>
-                    <button className="button02" onClick={() => {
+                    <Button className="button02" onClick={() => {
                         return useAddNewProduct(product, cartList, setCartList)
-                    }} >Adicionar</button>
+                    }} >Adicionar</Button>
                 </div>
             </div>
         </li>

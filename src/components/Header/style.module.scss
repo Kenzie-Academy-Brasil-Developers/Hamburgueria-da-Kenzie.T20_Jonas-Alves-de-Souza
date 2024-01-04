@@ -1,5 +1,11 @@
 header{
+    width: 100%;
+    height: 5.625rem;
     background: var(--color-grey-0);
+
+    @media(max-width: 450px){
+        height: 6.875rem;
+    }
 }
 .headerBox{
     height: 5rem;
@@ -7,48 +13,66 @@ header{
     justify-content: space-between;
     align-items: center; 
 
-   @media(max-width:500px){
-    display: grid;
-   }
-        
+    
     div{
         display: flex;
-        flex-direction: row-reverse;
-
+        align-items: center;
+        
         div{
             width: 100%;
             height: 5.5rem;
-            display: flex;
+            form{
+                display: flex;
+                align-items: center;
+                
+                input{
+                    width: 25rem;
+                    height: 1.375rem;
 
+                    border: solid var(--color-grey-100) .0938rem;
+                    border-radius: .5rem;
+                    
+                    font-family: var(--font-primary);
+                    font-size: .75rem;
+                    color: var(--color-grey-300);
+
+                    @media(max-width:450px){
+                        width: 180px; 
+                        height: 1.375rem;                       
+                    }
+                }
+                
+                input:hover{
+                    border: solid var(--color-primary) .0938rem;
+                }
+            }
+            
             button{
                 span{
+
                     padding: 4px;
-                    border-radius: 7px;
-    
+                    border-radius: 7px;    
                     background: var(--color-primary);
                     color: var(--color-white);
+
                 }
             }
         }
-        form{
-            display: flex;
-            flex-direction: row-reverse;
-            align-items: center;
+        
+        
+    }
 
-            input{
-                height: 22px;
-                border: solid var(--color-grey-100) .0938rem;
-                border-radius: .5rem;
 
-                font-family: var(--font-primary);
-                width: 400;
-                font-size: .75rem;
-                color: var(--color-grey-300);
-            }
-            input:hover{
-                border: solid var(--color-primary) .0938rem;
-            }
+    
+    img{
+        @media(max-width:325px){
+            width: 50%;
         }
+    }
+    
+    @media(max-width:500px){
+     display: flex;
+     flex-direction: column;     
     }
 }
 

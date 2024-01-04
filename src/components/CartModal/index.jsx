@@ -1,11 +1,10 @@
 import { MdClose } from "react-icons/md";
 import { CartItemCard } from "./CartItemCard";
-import { useClearCart } from "../../hooks/useClearCart";
-import { useOutclick } from "../../hooks/useOutclick";
-import { useKeydown } from "../../hooks/usekeydown";
+import { useClearCart, useOutclick, useKeydown } from "../../hooks";
 import styles from "./style.module.scss"
 
 export const CartModal = ({ cartList, setCartList, setIsopen }) => {
+
    const total = cartList.reduce((prevValue, product) => {
       return prevValue + product.price;
    }, 0);
@@ -41,13 +40,20 @@ export const CartModal = ({ cartList, setCartList, setIsopen }) => {
 
             <div className={`${styles.middleModal}`}>
                <ul>
-                  {cartList.map((product) => (
-                     <CartItemCard
+
+                  {cartList.map((product) => {
+
+                     return (
+
+                    <CartItemCard
                      setCartList={setCartList}
                      cartList={cartList} 
                      key={product.id} 
                      product={product} />
-                  ))}
+                     
+                     )
+
+                  })}
                </ul>
             </div>
 

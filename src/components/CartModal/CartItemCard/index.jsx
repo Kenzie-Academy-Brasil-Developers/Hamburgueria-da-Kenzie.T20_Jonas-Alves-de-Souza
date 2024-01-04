@@ -1,5 +1,6 @@
 import { MdDelete } from "react-icons/md";
-import { useRemoveProduct } from "../../../hooks/useRemoveProduct";
+import { useRemoveProduct } from "../../../hooks";
+import { Button, Input } from "../../Fragments";
 import styles from "./style.module.scss"
 
 export const CartItemCard = ({ product, cartList, setCartList }) => {
@@ -15,16 +16,28 @@ export const CartItemCard = ({ product, cartList, setCartList }) => {
                   <p className="text03 bold green">{product.price.toLocaleString('pt-BR', { style: "currency", currency: "BRL"})}</p>
                </div>
             </div>
-            <button
-               onClick={()=>{
-                  return useRemoveProduct(product.id, cartList, setCartList)
-               }} 
-               aria-label="delete" 
-               title="Remover item">
+               <form>
+                  <Input
+                     label="Qtd:"
+                     type="number" 
+                  />
+                  <Button
+                     onClick={()=>{
 
-               <MdDelete size={21} color="#BDBDBD" />
+                     }}
+                  >+</Button>
+               </form>
+            <div>
+               <Button
+                  onClick={()=>{
+                     return useRemoveProduct(product.id, cartList, setCartList)
+                  }} 
+                  aria-label="delete" 
+                  title="Remover item">
 
-            </button>
+                  <MdDelete size={21} color="#BDBDBD" />
+               </Button>
+            </div>
          </div>
       </li>
    );
