@@ -2,18 +2,44 @@ header{
     width: 100%;
     height: 5.625rem;
     background: var(--color-grey-0);
+    box-shadow: 0px 1px 5px -1px rgba(0,0,0,0.50);
 
-    @media(max-width: 450px){
-        height: 6.875rem;
+    img{
+        width: 220px;
+
+        @media(max-width:530px){
+            width: 200px;
+
+            @media(max-width:510px){
+                width: 180px;
+            }
+
+            @media(max-width:325px){
+                width: 50%;
+            }
+            
+        }
+        }
+
+
+    @media(max-width:820px){
+        width: 100%;
+        height: 6.25rem;                       
+        @media(max-width: 510px){
+            height: 6.875rem;
+        }
     }
+    
+
+
+    display: flex;
 }
 .headerBox{
     height: 5rem;
     display: flex;
     justify-content: space-between;
     align-items: center; 
-
-    
+        
     div{
         display: flex;
         align-items: center;
@@ -26,8 +52,8 @@ header{
                 align-items: center;
                 
                 input{
-                    width: 25rem;
-                    height: 1.375rem;
+                    width: 15.625rem;
+                    height: 1.5625rem;
 
                     border: solid var(--color-grey-100) .0938rem;
                     border-radius: .5rem;
@@ -35,11 +61,25 @@ header{
                     font-family: var(--font-primary);
                     font-size: .75rem;
                     color: var(--color-grey-300);
+                    
 
-                    @media(max-width:450px){
-                        width: 180px; 
-                        height: 1.375rem;                       
+                    @media(max-width:820px){
+                        width: 9.375rem; 
+                        height: 1.375rem;
+
+                        @media(max-width:270px){
+                            width: 120px; 
+                            height: 1.375rem;
+                            
+                            margin-left: 19px;
+                        }
+                        @media(max-width:250px){
+                            width: 90px; 
+                            height: 10px;
+                            margin: 0;
+                        }
                     }
+
                 }
                 
                 input:hover{
@@ -49,7 +89,6 @@ header{
             
             button{
                 span{
-
                     padding: 4px;
                     border-radius: 7px;    
                     background: var(--color-primary);
@@ -60,14 +99,6 @@ header{
         }
         
         
-    }
-
-
-    
-    img{
-        @media(max-width:325px){
-            width: 50%;
-        }
     }
     
     @media(max-width:500px){

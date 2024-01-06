@@ -3,10 +3,29 @@ import { CartItemCard } from "./CartItemCard";
 import { useClearCart, useOutclick, useKeydown } from "../../hooks";
 import styles from "./style.module.scss"
 
+import React from 'react';
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+
+const notify = ()=> {
+
+   toast.error('Não há mais produtos no carrinho!', {
+      position: "top-center",
+      autoClose: 0.3 * 1000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      });
+
+}
+
 export const CartModal = ({ cartList, setCartList, setIsopen }) => {
 
    const total = cartList.reduce((prevValue, product) => {
-      return prevValue + product.price;
+      return prevValue + product.price * product.amount;
    }, 0);
 
    const modalRef = useOutclick(()=> {
@@ -65,11 +84,24 @@ export const CartModal = ({ cartList, setCartList, setIsopen }) => {
                <button
                   className="button01"
                onClick={()=> {
-                  return useClearCart(setCartList)
+                  notify()
+                  useClearCart(setCartList)
                }}
                >Remover todos</button>
             </div>
          </div>
+         <ToastContainer
+            position="top-center"
+            autoClose={0.3 * 1000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="light" 
+         />
       </div>
    );
 };

@@ -34,7 +34,7 @@ export const Header = ({ cartList, setIsOpen, setSearch }) => {
                      </form>   
                      <Button onClick={() => setIsOpen(true)}>
                         <MdShoppingCart size={21} color="#828282" />
-                        <span>{useCartProductQuantity(cartList)}</span>
+                        <span>{cartList.reduce((total, product)=> total + product.amount, 0)}</span>               
                      </Button>
                   </div>
 
