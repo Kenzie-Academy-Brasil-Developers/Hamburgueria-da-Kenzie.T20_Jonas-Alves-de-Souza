@@ -53,7 +53,7 @@ export const CartItemCard = ({ product, cartList, setCartList }) => {
 
             <div className={`${styles.addProductsCartContainer} btn`}>
                <span className="text04 grey300">
-                  {product.amount}
+                  Q. ({product.amount})                  
                </span>
                <Button
                   onClick={()=>{
@@ -78,6 +78,8 @@ export const CartItemCard = ({ product, cartList, setCartList }) => {
                </Button>               
             </div>
          </div>
+         
+      
          <ToastContainer
             position="top-center"
             autoClose={0.3 * 1000}

@@ -83,13 +83,14 @@ export const CartModal = ({ cartList, setCartList, setIsopen }) => {
                </div>
                <button
                   className="button01"
-               onClick={()=> {
+                  onClick={()=> {
                   notify()
                   useClearCart(setCartList)
                }}
                >Remover todos</button>
             </div>
          </div>
+       
          <ToastContainer
             position="top-center"
             autoClose={0.3 * 1000}
