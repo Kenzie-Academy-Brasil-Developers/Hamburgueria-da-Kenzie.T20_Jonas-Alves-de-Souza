@@ -11,8 +11,13 @@
 
 
    @media(max-width:325px){
-    width: 210px;
-    height: 236,6px;
+        width: 210px;
+        height: 236,6px;
+
+        @media(max-width:250px){
+            width: 150px;
+            height: 177,45px;
+        }
    }
 
     .top{
