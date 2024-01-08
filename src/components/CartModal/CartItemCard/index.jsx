@@ -53,7 +53,7 @@ export const CartItemCard = ({ product, cartList, setCartList }) => {
 
             <div className={`${styles.addProductsCartContainer} btn`}>
                <span className="text04 grey300">
-                  Q. ({product.amount})                  
+                  Q.({product.amount})                  
                </span>
                <Button
                   onClick={()=>{
